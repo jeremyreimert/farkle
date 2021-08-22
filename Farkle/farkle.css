@@ -1,0 +1,269 @@
+img{
+	width:80px;
+}
+body{
+	background-color: lightblue;
+	font-family: arial;	
+}
+
+.dark-mode {
+	background-color: rgb(0, 0, 17);
+	color: white;
+} 
+
+.row{
+	margin:auto;
+	width: 100%;
+	max-width: 100%;
+}
+
+.header{
+	float: left;
+	margin-left: 80px;
+	height: 100px;
+	max-height: 100%;
+	font-size: 50px;
+	text-align: left;
+	line-height: 100px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: navy;
+	text-shadow:
+		-1px -1px 0 lightblue,
+		1px -1px 0 lightblue,
+		-1px 1px 0 lightblue,
+		1px 1px 0 lightblue;
+}
+
+.turn, .score, .roll {
+	background-color: transparent;
+	color: navy;
+	height: 60px;
+	max-height:100%;
+	font-size: 32px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-align: center;
+	line-height: 60px;
+	width:100%;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	text-shadow:
+		-1px -1px 0 lightblue,
+		1px -1px 0 lightblue,
+		-1px 1px 0 lightblue,
+		1px 1px 0 lightblue;
+}
+
+.dice{
+	max-width: 520px;
+	margin:0 auto;
+	background-color: transparent;
+	border-radius: 20px;
+}
+
+.button {
+  background-color:navy;
+  color: white;
+  padding: 15px 32px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-bottom: 25px;
+}
+
+.column{
+	float: left;
+	margin-left: 80px;
+	margin-top: 0px;
+	max-width: 20%; 
+}
+
+.column1{
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	max-width: 80%; 
+}
+
+.column2{
+	float: left;
+	margin-left: 50px;
+	margin-top: 0px;
+	max-width: 80%; 
+}
+
+.playerScore{
+	visibility: hidden;
+	margin-bottom: 0px;
+	background-color: transparent;
+	color: navy;
+	height: 50px;
+	max-height:100%;
+	font-size: 28px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-align: left;
+	line-height: 60px;
+	width:100%;
+	margin-top: 0px;
+	text-shadow:
+		-1px -1px 0 lightblue,
+		1px -1px 0 lightblue,
+		-1px 1px 0 lightblue,
+		1px 1px 0 lightblue;
+}
+
+button:hover {
+  color: lightblue;
+  background-color: navy;
+}
+
+.transparent{
+	opacity: 0.75;
+}
+
+.dropbtn {
+	background-color:navy;
+	color: white;
+	padding: 15px 32px;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	border: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-left: 0px;
+	margin-bottom: 25px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+	
+.dropdown-content {
+	display: none;
+	position: relative;
+	margin-left: 20px;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.innerdropdown-content {
+	display: none;
+	position: relative;
+	margin-left: 20px;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+	
+.dropdown-content a:hover {background-color:lightblue;}
+
+.dropdown:hover .dropdown-content {display: block;}
+	
+.dropdown:hover .dropbtn {background-color: navy;}
+
+.popup {
+	position: relative;
+	display:inline; 
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-position-y: top;
+	background-position-x: center;
+}
+ 
+.popup .popuptext {
+	visibility:hidden;
+	width: 750px;
+	background-color: #555;
+	color: #fff;
+	text-align: left;
+	font-size: 9pt;
+	border-radius: 10px;
+	padding: 8px 20px;
+	position: absolute;
+	z-index: 1;
+	background-position-y:top;
+	background-position-x: center;
+}
+
+.popup .popuptext2 {
+	visibility: hidden;
+	width: 1000px;
+	height: 250px;
+	background-color:  #555;
+	background-image: linear-gradient(90deg, navy, lightblue );
+	color: #fff;
+	text-align: left;
+	font-size: 10pt;
+	border-radius: 12px;
+	padding: 8px 20px 20px 20px;
+	position: absolute;
+	z-index: 1;
+	background-position-y:top;
+	background-position-x: center;
+}
+
+.popup .popuptext3 {
+	visibility: hidden;
+	width: 1000px;
+	height: 250px;
+	background-color:  #555;
+	background-image: linear-gradient(90deg, navy, lightblue );
+	color: #fff;
+	text-align: center;
+	font-size: 10pt;
+	border-radius: 12px;
+	padding: 8px 20px 20px 20px;
+	position: absolute;
+	z-index: 1;
+	background-position-y:top;
+	background-position-x: center;
+}
+  
+.popup .popuptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+  
+.popup .show {
+	visibility: visible;
+	-webkit-animation: fadeIn 1s;
+	animation: fadeIn 1s;
+}
+  
+@-webkit-keyframes fadeIn {
+	from {opacity: 0;} 
+	to {opacity: 1;}
+}
+  
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity:1 ;}
+}

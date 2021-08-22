@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="farkle.css">
+	<script async type="text/javascript" src="farkle.js"></script>
+	<title>Farkle!</title>
+</head>
+
+<body onload="initializeGame()">
+	<header class="row header">Welcome to Farkle!</header>
+
+<div class="row">
+
+<div class="column">
+	<button class="button" onclick="rollDice()">Roll Dice</button>
+	<button class="button" onclick="bankScore()">Bank Score</button>
+   	<button class="button" onClick="startOver()">Start Over</button>
+	<div class="dropdown">
+		<button class="dropbtn">Menu</button>
+			<div class="dropdown-content">
+				<a href="#">Number of Players
+					<form onclick="showPlayersForm()">
+						<select id = "playerMenu">
+						<option value = "1">1</option>
+						<option value = "2">2</option>
+						<option value = "3">3</option>
+						<option value = "4">4</option>
+						</select>
+					</form>
+				</a>
+	  			<a href="#">Set Points to Win
+					<form>
+						<select id = "scoreMenu" onchange="setWinningScore()")>
+						<option value = "5000">5000</option>
+						<option value = "10000">10000</option>
+						<option value = "15000">15000</option>
+						<option value = "20000">20000</option>
+						</select>
+					</form>
+				</a>
+	  			<a href="#" onclick="toggleRules()" onmouseout="hideRules()">Rules</a>
+	  			<a href="#" onclick="darkMode()" id="dark">Dark Mode Off</a>
+				<a href="#" onclick="toggleScores()" onmouseout="hideScores()">High Scores</a>
+			</div>
+	</div>	
+</div>
+
+<div class="column1">
+	<div class="popup">
+		<span class="popuptext2" id="playerPopup">
+			<form> 
+				<div class="container">
+		  			<h1>Enter Player Names</h1> 
+		  			<input type="text" placeholder="Player 1" id="p1"><br><br>
+					<input type="text" placeholder="Player 2" id="p2"><br><br>
+					<input type="text" placeholder="Player 3" id="p3"><br><br>
+		  			<input type="text" placeholder="Player 4" id="p4"><br><br>
+		  			<button class="submit" onclick="submitPlayers()">Submit</button>
+				</div>
+	  		</form>
+		</span>
+	</div>
+
+	<div class="popup">
+		<span class="popuptext3" id="scoresPopup">
+			<p><h2 >HIGH SCORES</h2></p>
+			<p><sup>_________________________________________________________________________________________________________</sup></p>
+		</span>
+	</div>
+
+	<div class="popup">
+		<span class="popuptext" id="rulesPopup">
+			<p><h3>Rules:</h3></p>
+			<p>On your turn, you roll six dice. Points are earned every time you roll a 1 or a 5, or if you roll 3,4,5 or 6 of a kind.</p>
+			<p>If none of the dice rolled earned points, that's a Farkle! Your turn is over and you earn no points.</p>
+			<p>If you roll at least one scoring die, you can either bank your point total and pass your turn,</p>
+		    <p>you can risk these points by putting aside the dice you’ve scored (at least one) and continuing to roll the remaining dice.</p>
+			<p>The remaining dice may earn you additional points, but if you Farkle, you lose everything you’ve earned during your turn.</p>
+			<p>Scoring is based only on the dice in each roll. You cannot earn points by combining dice from different rolls.</p> 
+			<p>You can continue rolling the dice until you either Pass or Farkle.</p> 
+			<p>For example, if a player rolls 2-4-5-5-5-6, they can choose to do any of the following:</p>
+			<p>•	Score a single 5 for 50 points and risk their points by rolling the remaining 5 dice.</p>
+			<p>•	Score the set of 5’s for 500 points and risk their points by rolling the remaining 3 dice.</p>
+			<p>•	Score the set of 5’s for 500 points and end their turn, banking those points.</p>
+			<p>In the first scenario, the player rolls five dice in their second throw.</p> 
+			<p>If they were to roll 2-3-4-5-5 in this throw, they can not combine these 5’s with the 5 rolled in the first throw.</p> 
+			<p>The player would only have the option to score these two 5’s individually for 100 points.</p>
+			<p>If the game is played by multiple players, then each player takes their turn in order until one player has reached the winning score (5k,10k,15k, or 20k).</p>
+			<p>Each player then has one more chance to score points, and whoever has the most points at the end of that round wins.</p>
+			<p></p>
+			<p><h3>Scoring:</h3></p>  
+			<p>Each 1 rolled&emsp;&ensp;100 points&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 1’s.....1000 points</p>
+			<p>Each 5 rolled&emsp;&emsp;50 points&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 2’s......200 points</p>
+			<p>4 of any kind&emsp;1000 points&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 3’s......300 points</p>
+			<p>5 of any kind&emsp;2000 points&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 4’s......400 points</p>
+			<p>6 of any kind&emsp;3000 points&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 5’s......500 points</p>
+			<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Three 6’s......600 points</p>
+		</span>
+	</div>
+
+	<div class="turn"></div>
+	<div class="score"> 0 points this roll</div>
+	<div class="row">
+		<!-- Dice images -->
+		<div class="dice"> 
+			<img src="images/1.png" id="die1" data-number="0" onclick="diceClick(this)">
+			<img src="images/2.png" id="die2" data-number="1" onclick="diceClick(this)">
+			<img src="images/3.png" id="die3" data-number="2" onclick="diceClick(this)">
+			<img src="images/4.png" id="die4" data-number="3" onclick="diceClick(this)">
+			<img src="images/5.png" id="die5" data-number="4" onclick="diceClick(this)">
+			<img src="images/6.png" id="die6" data-number="5" onclick="diceClick(this)">
+		</div>
+	</div>
+
+</div>
+<div class="column2">
+	<div class="playerScore" id="ps1">Player 1 Score : 0</div>
+	<div class="playerScore" id="ps2">Player 2 Score : 0</div>
+	<div class="playerScore" id="ps3">Player 3 Score : 0</div>
+	<div class="playerScore" id="ps4">Player 4 Score : 0</div>
+</div>	
+</div>	
+</body>
+</html>
